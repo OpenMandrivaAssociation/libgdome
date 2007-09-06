@@ -1,7 +1,6 @@
 %define name libgdome
 %define src_name gdome2
 %define version 0.8.1
-%define release 4mdk
 
 %define major 0
 %define libname  %mklibname gdome %{major}
@@ -9,7 +8,7 @@
 Summary:	A DOM level2 library for accessing XML files
 Name:		%{name}
 Version:	%{version}
-Release:	%{release}
+Release:	%mkrel 1
 License:	LGPL
 Group:		System/Libraries
 URL:		http://gdome2.cs.unibo.it
