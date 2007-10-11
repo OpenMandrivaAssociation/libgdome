@@ -8,7 +8,7 @@
 Summary:	A DOM level2 library for accessing XML files
 Name:		%{name}
 Version:	%{version}
-Release:	%mkrel 1
+Release:	%mkrel 5
 License:	LGPL
 Group:		System/Libraries
 URL:		http://gdome2.cs.unibo.it
@@ -20,12 +20,12 @@ BuildRequires:	glib2-devel
 Provides:	gdome2
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 
-%description 
+%description
 Libgdome is a DOM C library developed for the Gnome project.
 Libgdome is a DOM level2 Implementation.
 Libgdome supports "Core" and "XML" modules.
 Libgdome supports "Events" and "MutationEvents" modules.
-Libgdome is based on libxml2.  
+Libgdome is based on libxml2.
 
 %package -n	%{libname}
 Summary:	A DOM level2 library for accessing XML files
@@ -64,10 +64,10 @@ export GLIB_CONFIG="pkg-config glib-2.0"
 
 %install
 rm -rf %{buildroot}
- 
+
 %makeinstall
 %multiarch_binaries %{buildroot}%{_bindir}/gdome-config
- 
+
 %post -n %{libname} -p /sbin/ldconfig
 
 %postun -n %{libname} -p /sbin/ldconfig
@@ -76,8 +76,8 @@ rm -rf %{buildroot}
 rm -rf %{buildroot}
 
 %files -n %{libname}
-%defattr(-, root, root) 
-%{_libdir}/lib*.so.* 
+%defattr(-, root, root)
+%{_libdir}/lib*.so.*
 
 %files -n %{libname}-devel
 %defattr(-,root,root)
@@ -87,9 +87,9 @@ rm -rf %{buildroot}
 %dir %{_datadir}/gtk-doc/html/%{src_name}-%{version}/
 %{_datadir}/gtk-doc/html/%{src_name}-%{version}/*.html
 %{_datadir}/gtk-doc/html/%{src_name}-%{version}/*.sgml
-%{_datadir}/aclocal/gdome2.m4  
+%{_datadir}/aclocal/gdome2.m4
 %{_includedir}/*
-%{_libdir}/pkgconfig/gdome2.pc 
+%{_libdir}/pkgconfig/gdome2.pc
 %{_libdir}/lib*.so
 %{_libdir}/*a
 %{_libdir}/*.sh
