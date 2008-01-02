@@ -18,6 +18,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	libxml2-devel >= 2.4.26
 BuildRequires:	glib2-devel
 Provides:	gdome2
+BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
 Libgdome is a DOM C library developed for the Gnome project.
