@@ -1,14 +1,12 @@
-%define name libgdome
 %define src_name gdome2
-%define version 0.8.1
 
 %define major 0
 %define libname  %mklibname gdome %{major}
 
 Summary:	A DOM level2 library for accessing XML files
-Name:		%{name}
-Version:	%{version}
-Release:	%mkrel 5
+Name:		libgdome
+Version:	0.8.1
+Release:	%mkrel 6
 License:	LGPL
 Group:		System/Libraries
 URL:		http://gdome2.cs.unibo.it
@@ -18,7 +16,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	libxml2-devel >= 2.4.26
 BuildRequires:	glib2-devel
 Provides:	gdome2
-BuildRoot:	%{_tmppath}/%{name}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Libgdome is a DOM C library developed for the Gnome project.
