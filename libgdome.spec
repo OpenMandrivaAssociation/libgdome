@@ -16,6 +16,7 @@ Patch0:		gdome2-0.8.1-gdome-config_lib64.diff
 Patch1:		gdome2-0.8.1-fix-str-fmt.patch
 BuildRequires:	libxml2-devel >= 2.4.26
 BuildRequires:	glib2-devel
+BuildRequires:	glib-devel
 Provides:	gdome2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
