@@ -52,9 +52,8 @@ developing with libgdome.
 %patch1 -p0
 
 %build
-# to fix gdome-config(1)
-#export GLIB_CONFIG="pkg-config glib-2.0"
-%configure2_5x
+autoreconf -fi
+%configure2_5x --enable-glib-1=no
 %make
 
 %install
