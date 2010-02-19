@@ -2,6 +2,7 @@
 
 %define major 0
 %define libname  %mklibname gdome %{major}
+%define develname %mklibname -d gdome
 
 Summary:	A DOM level2 library for accessing XML files
 Name:		libgdome
@@ -12,7 +13,7 @@ Group:		System/Libraries
 URL:		http://gdome2.cs.unibo.it
 Source0:	http://gdome2.cs.unibo.it/tarball/%{src_name}-%{version}.tar.bz2
 Patch0:		gdome2-0.8.1-gdome-config_lib64.diff
-BuildRequires:	pkgconfig
+Patch1:		gdome2-0.8.1-fix-str-fmt.patch
 BuildRequires:	libxml2-devel >= 2.4.26
 BuildRequires:	glib2-devel
 Provides:	gdome2
@@ -33,37 +34,32 @@ Group:		System/Libraries
 A fast, light and complete DOM level2 implementation
 based on libxml2
 
-%package -n	%{libname}-devel
+%package -n	%{develname}
 Summary:	DOM level2 library for accessing XML files
 Group:		Development/C
 Requires:	%{libname} = %{version}
 Provides:	%{name}-devel = %{version}-%{release}
 Provides:	%{src_name}-devel = %{version}-%{release}
+Obsoletes:	%{_lib}gdome0-devel < %{version}-%{release}
 
-%description -n	%{libname}-devel
+%description -n	%{develname}
 This package contains the header files and static libraries for
 developing with libgdome.
 
 %prep
-
 %setup -qn %{src_name}-%{version}
 %patch0 -p0
+%patch1 -p0
 
 %build
 # to fix gdome-config(1)
-export GLIB_CONFIG="pkg-config glib-2.0"
-
-%configure
-
+#export GLIB_CONFIG="pkg-config glib-2.0"
+%configure2_5x
 %make
-
-# xpath check don't work unless libxml2-2.6.20
-#make check
 
 %install
 rm -rf %{buildroot}
-
-%makeinstall
+%makeinstall_std
 %multiarch_binaries %{buildroot}%{_bindir}/gdome-config
 
 %if %mdkversion < 200900
@@ -81,14 +77,11 @@ rm -rf %{buildroot}
 %defattr(-, root, root)
 %{_libdir}/lib*.so.*
 
-%files -n %{libname}-devel
+%files -n %{develname}
 %defattr(-,root,root)
 %doc AUTHORS MAINTAINERS ChangeLog INSTALL README COPYING COPYING.LIB
 %{_bindir}/gdome-config
 %multiarch %multiarch_bindir/gdome-config
-%dir %{_datadir}/gtk-doc/html/%{src_name}-%{version}/
-%{_datadir}/gtk-doc/html/%{src_name}-%{version}/*.html
-%{_datadir}/gtk-doc/html/%{src_name}-%{version}/*.sgml
 %{_datadir}/aclocal/gdome2.m4
 %{_includedir}/*
 %{_libdir}/pkgconfig/gdome2.pc
