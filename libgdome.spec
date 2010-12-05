@@ -7,7 +7,7 @@
 Summary:	A DOM level2 library for accessing XML files
 Name:		libgdome
 Version:	0.8.1
-Release:	%mkrel 9
+Release:	%mkrel 10
 License:	LGPL
 Group:		System/Libraries
 URL:		http://gdome2.cs.unibo.it
