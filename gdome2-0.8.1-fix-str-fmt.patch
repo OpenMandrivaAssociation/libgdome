@@ -1,0 +1,11 @@
+--- test/bench.c.str	2010-02-19 22:39:33.000000000 +0100
++++ test/bench.c	2010-02-19 22:39:46.000000000 +0100
+@@ -81,7 +81,7 @@
+ 			break;
+ 		case GDOME_TEXT_NODE:
+ 			str = gdome_t_data ((GdomeText *)child, &exc);
+-			printf (str->str);
++			printf ("%s", str->str);
+ 			gdome_str_unref (str);
+ 			break;
+ 		}

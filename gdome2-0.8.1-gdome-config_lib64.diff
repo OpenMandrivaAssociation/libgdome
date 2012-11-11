@@ -1,0 +1,11 @@
+--- gdome-config.in	2001-12-06 10:27:26.000000000 +0100
++++ gdome-config.in.oden	2005-07-15 12:22:11.000000000 +0200
+@@ -83,7 +83,7 @@
+     shift
+ done
+ 
+-the_libs="$the_libs -L${exec_prefix}/lib -lgdome `@GLIB_CONFIG@ --libs` `@XML_CONFIG@ --libs`"
++the_libs="$the_libs -L@libdir@ -lgdome `@GLIB_CONFIG@ --libs` `@XML_CONFIG@ --libs`"
+ the_flags="$the_flags -I${prefix}/include -I${prefix}/include/libgdome `@GLIB_CONFIG@ --cflags` `@XML_CONFIG@ --cflags`"
+ 
+ if $cflags; then
