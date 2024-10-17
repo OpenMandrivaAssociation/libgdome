@@ -10,7 +10,7 @@ Version:	0.8.1
 Release:	11
 License:	LGPL
 Group:		System/Libraries
-URL:		http://gdome2.cs.unibo.it
+URL:		https://gdome2.cs.unibo.it
 Source0:	http://gdome2.cs.unibo.it/tarball/%{src_name}-%{version}.tar.bz2
 Patch0:		gdome2-0.8.1-gdome-config_lib64.diff
 Patch1:		gdome2-0.8.1-fix-str-fmt.patch
